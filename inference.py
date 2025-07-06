@@ -31,7 +31,6 @@ def parse_args():
     ps.add_argument('--batch_size', type=int, default=1)
     ps.add_argument('--data_dir', type=str)
     ps.add_argument('--data_set', type=str, default='test')
-    ps.add_argument('--csv_path', type=str)
     ps.add_argument('--output_dir', type=str, default='./output')
     ps.add_argument('--input_length', default=8)
     ps.add_argument('--sr', type=int, default=16000)
@@ -40,7 +39,6 @@ def parse_args():
     ps.add_argument('--training', default=False)
     args = ps.parse_args()
 
-    args.csv_path = args.csv_path.format(args.dataset_name)
     args.data_dir = os.path.join(args.data_dir, args.dataset_name, args.data_set)
     args.output_dir = os.path.join(args.output_dir, args.dataset_name)
     if not os.path.exists(args.output_dir): os.makedirs(args.output_dir)
